@@ -25,6 +25,12 @@
     <div class="col-lg-12" id="task_list">
       {{#each tasks}}
       <div id="task_{{ id }}" class="card my-3 {{#eq status 'done' }}bg-light{{/eq}}">
+      {{#eq status 'done' }}
+      <span class="text-secondary text-right p-1">DONE</span>
+      {{/eq}}
+      {{#eq status 'pending'}}
+        <span class="text-secondary text-right p-1">PENDING</span>
+      {{/eq}}
         <div class="card-body">
           <p class="card-text">{{ description }}</p>
           {{#eq status 'pending'}}
