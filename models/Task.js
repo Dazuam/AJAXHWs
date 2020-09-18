@@ -28,3 +28,10 @@ exports.delete = (id) => {
       .where('id', id)
       .first().del()
 }
+
+exports.update = (id) => {
+  return knex('tasks')
+          .update('status', 'done')
+          .update('updated_at', knex.fn.now())
+          .where('id', id)
+}

@@ -24,3 +24,14 @@ exports.deleteTask = (req, res) => {
 
   });
 }
+
+exports.done = (req, res) => {
+  let taskId = req.body.id;
+  Task.update(taskId).then((data) => {
+    if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+      res.json({ id: taskId })
+    } else {
+      res.redirect('/');
+    }
+  })
+}
