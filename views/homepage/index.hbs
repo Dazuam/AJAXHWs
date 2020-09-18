@@ -28,7 +28,8 @@
         <div class="card-body">
           <p class="card-text">{{ description }}</p>
           {{#eq status 'pending'}}
-            <a href="#" class="card-link">Done</a>
+          <input id="${task.id}" type="button" onclick="taskCompleted(this)" value="Done" class="btn btn-primary">
+          <input id="del-${task.id}" type="button" onclick="deleteTask(this)" value="Delete" class="btn btn-primary">
           {{/eq}}
         </div>
       </div>

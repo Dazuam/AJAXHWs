@@ -12,3 +12,15 @@ exports.store = (req, res) => {
     }
   });
 }
+
+exports.deleteTask = (req, res) => {
+  Task.delete(req.body.id).then(() => {
+      if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+          res.json(req.body.id);
+          console.log('Task with id: ', req.body.id, ' deleted');
+      } else {
+          res.redirect('/');
+      }
+
+  });
+}
